@@ -1,3 +1,5 @@
+set nocompatible
+filetype plugin on
 no <up> <Nop>
 no <down> <Nop>
 no <left> <Nop>
