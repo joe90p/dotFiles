@@ -22,3 +22,5 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 syntax on
 let g:netrw_liststyle = 3
+set foldmethod=syntax
+set number
