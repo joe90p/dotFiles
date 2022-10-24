@@ -16,21 +16,26 @@ nmap <silent> <RIGHT>        :cnext<CR>
 nmap <silent> <RIGHT><RIGHT> :cnfile<CR><C-G>
 nmap <silent> <LEFT>         :cprev<CR>
 nmap <silent> <LEFT><LEFT>   :cpfile<CR><C-G>
+
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 syntax on
 let g:netrw_liststyle = 3
 set foldmethod=syntax
 set number relativenumber
 set background=dark
-set autochdir
+set noautochdir
 
 packadd minpac
 call minpac#init()
 call minpac#add('junegunn/fzf')
 call minpac#add('preservim/nerdtree')
+call minpac#add('OmniSharp/omnisharp-vim')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
+let g:OmniSharp_server_use_net6 = 1
