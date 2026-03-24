@@ -1,19 +1,15 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
+	branch = "master",
 	build = ":TSUpdate",
 	config = function ()
-		local parsers = { "vim", "vimdoc", "java", "lua", "luadoc", "markdown", "javascript" }
-		require("nvim-treesitter").install(parsers)
-
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = parsers,
-			callback = function()
-				vim.treesitter.start()
-				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-			end,
+		local configs = require("nvim-treesitter.configs")
+		configs.setup({
+			ensure_installed = {"vim", "vimdoc", "java", "lua", "luadoc", "markdown", "javascript" },
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
 		})
-
 		vim.keymap.set('n', '<leader>ft', ':Neotree toggle=true<CR>')
 	end
 }
